@@ -11,6 +11,9 @@
         </div>
       </li>
     </ul>
+    <div class="more">
+      <button class="moreButton">MORE</button>
+    </div>
   </div>
 </template>
 
@@ -64,7 +67,7 @@ export default {
 ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   padding: 0;
   list-style-type: none;
 }
@@ -107,6 +110,19 @@ li img {
   color: #999999;
   margin: 4px 0;
   font-size: 0.7em;
+}
+
+.more {
+  margin: 2rem;
+  text-align: center;
+}
+
+.more .moreButton {
+  width: 10%;
+  padding: 5px;
+  font-weight: bold;
+  background-color: #ffffff;
+  border-radius: 5rem;
 }
 
 </style>
