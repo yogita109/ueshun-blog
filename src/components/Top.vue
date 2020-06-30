@@ -109,7 +109,11 @@ li img {
 .summary {
   color: #999999;
   margin: 4px 0;
-  font-size: 0.7em;
+  font-size: 0.7rem;
+}
+
+.date {
+  font-size: 0.7rem;
 }
 
 .more {
@@ -123,6 +127,12 @@ li img {
   font-weight: bold;
   background-color: #ffffff;
   border-radius: 5rem;
+  cursor: pointer;
+}
+
+.moreButton:hover {
+  color: #ffffff;
+  background-color: #343a40;
 }
 
 </style>
