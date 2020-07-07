@@ -18,46 +18,55 @@
 </template>
 
 <script>
+import * as ArticleRepository from '../repository/article.repository'
+
 export default {
+  created: function () {
+    this.fetchArticles()
+      .then(urls => urls.map(url => this.fetchArticle(url)))
+      .then(articles => {
+        articles.forEach(element => {
+          element
+            .then(el => this.parse(el))
+            .then(el2 => this.items.unshift(el2))
+        })
+      })
+  },
   data () {
     return {
-      items: {
-        item: {
-          img: 'http://placehold.it/240x240',
-          tag: 'iOS',
-          title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-          summary: 'summary...',
-          date: '2020/06/30'
-        },
-        item1: {
-          img: 'http://placehold.it/240x240',
-          tag: 'iOS',
-          title: 'Nulla pharetra porta sagittis. Mauris et suscipit diam...',
-          summary: 'summary...',
-          date: '2020/06/30'
-        },
-        item2: {
-          img: 'http://placehold.it/240x240',
-          tag: 'iOS',
-          title: 'Integer ornare felis eu risus ultrices pharetra eu non velit...',
-          summary: 'summary...',
-          date: '2020/06/30'
-        },
-        item3: {
-          img: 'http://placehold.it/240x240',
-          tag: 'iOS',
-          title: 'Integer ornare felis eu risus ultrices pharetra eu non velit...',
-          summary: 'summary...',
-          date: '2020/06/30'
-        },
-        item4: {
-          img: 'http://placehold.it/240x240',
-          tag: 'iOS',
-          title: 'Integer ornare felis eu risus ultrices pharetra eu non velit...',
-          summary: 'summary...',
-          date: '2020/06/30'
-        }
+      items: []
+    }
+  },
+  methods: {
+    async fetchArticles () {
+      const response = await ArticleRepository.fetchArticleURLs()
+      if (response.status >= 200 && response.status < 300) {
+        return response.data.map(element => {
+          return element.download_url
+        })
+      } else {
+        console.log('failure')
       }
+    },
+    async fetchArticle (url) {
+      const response = await ArticleRepository.fetchArticle(url)
+      if (response.status >= 200 && response.status < 300) {
+        return response.data
+      } else {
+        console.log('failure')
+      }
+    },
+    parse (text) {
+      const title = text.split('# ')[1].split(/\r\n|\r|\n/)[0]
+      const summary = text.split('# ')[1].split(/\r\n|\r|\n/)[2]
+      const obj = {
+        img: 'http://placehold.it/240x240',
+        tag: 'iOS',
+        title: title,
+        summary: summary,
+        date: '2020/06/30'
+      }
+      return obj
     }
   }
 }
@@ -103,13 +112,13 @@ li img {
   margin: 0 auto;
   font-weight: bold;
   margin: 4px 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .summary {
   color: #999999;
   margin: 4px 0;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .date {
