@@ -57,14 +57,17 @@ export default {
       }
     },
     parse (text) {
+      const metaData = text.split('*****')[1]
+      console.log(metaData)
+      const json = JSON.parse(metaData)
       const title = text.split('# ')[1].split(/\r\n|\r|\n/)[0]
       const summary = text.split('# ')[1].split(/\r\n|\r|\n/)[2]
       const obj = {
-        img: 'http://placehold.it/240x240',
-        tag: 'iOS',
+        img: json.img,
+        tag: json.tag,
         title: title,
         summary: summary,
-        date: '2020/06/30'
+        date: json.date
       }
       return obj
     }
