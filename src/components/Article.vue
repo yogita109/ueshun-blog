@@ -1,6 +1,5 @@
 <template>
 <div class="items">
-  <h1>{{ this.param }}</h1>
   <div v-html="article" />
 </div>
 </template>>
@@ -40,5 +39,11 @@ export default {
 
 </script>
 
-<style src="../../node_modules/highlight.js/styles/monokai-sublime.css">
+<style src="../../node_modules/highlight.js/styles/monokai-sublime.css"></style>
+
+<style>
+.items {
+  margin: 16px;
+  padding: 0 40px;
+}
 </style>
