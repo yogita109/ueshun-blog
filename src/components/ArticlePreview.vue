@@ -1,5 +1,5 @@
 <template>
-  <div class="preview">
+  <div class="preview" @click="goToDetail">
     <div class="thumbnail"><img :src="article.img" alt="" /></div>
     <div class="tag">{{ article.tag }}</div>
     <div class="title">{{ article.title }}</div>
@@ -15,19 +15,25 @@ export default {
       type: Object,
       required: true
     }
+  },
+  methods: {
+    goToDetail () {
+      console.log('goToDetail')
+    }
   }
 }
 </script>
 
 <style>
+.preview {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
 img {
   width: 100%;
   height: auto;
-}
-
-.preview {
-  display: flex;
-  flex-direction: column;
 }
 
 .tag {
