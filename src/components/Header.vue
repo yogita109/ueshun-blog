@@ -2,8 +2,8 @@
   <header class="header">
     <div class="headerTitle">百聞は一見に如かず、百見は一触に如かず</div>
     <ul class="menu">
-      <li @click="goTo('トップ')">トップ</li>
-      <li @click="goTo('スキルセット')">スキルセット</li>
+      <li @click="goTo('/')">トップ</li>
+      <li @click="goTo('/skill')">スキルセット</li>
       <li @click="goTo('個人開発アプリ')">個人開発アプリ</li>
       <li @click="goTo('お問い合わせ')">お問い合わせ</li>
     </ul>
@@ -15,8 +15,8 @@ export default {
   name: 'Header',
 
   methods: {
-    goTo: function (event) {
-      console.log(event)
+    goTo: function (route) {
+      this.$router.push(route)
     }
   }
 }

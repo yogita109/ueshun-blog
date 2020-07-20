@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Top from '@/components/Top'
 import Article from '@/components/Article'
+import Skill from '@/components/Skill'
 
 Vue.use(Router)
 
@@ -19,6 +20,10 @@ export default new Router({
       name: 'archive',
       component: Article,
       props: true
+    },
+    {
+      path: '/skill',
+      component: Skill
     }
   ]
 })
