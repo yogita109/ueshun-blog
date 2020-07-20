@@ -40,8 +40,9 @@ export default {
   },
   methods: {
     async fetchArticles () {
-      const response = await ArticleRepository.fetchArticleURLs()
+      const response = await ArticleRepository.fetchAboutArticles()
       if (response.status >= 200 && response.status < 300) {
+        console.log(response.data.length)
         return response.data.length
       } else {
         console.log('failure')
@@ -62,18 +63,19 @@ export default {
     async fetchArticle (url) {
       const response = await ArticleRepository.fetchArticle(url)
       if (response.status >= 200 && response.status < 300) {
-        return response.data
+        return { article: response.data, url: url }
       } else {
         console.log('failure')
       }
     },
-    parse (text) {
-      const metaData = text.split('*****')[1]
+    parse (info) {
+      const metaData = info.article.split('*****')[1]
       const json = JSON.parse(metaData)
-      const title = text.split('# ')[1].split(/\r\n|\r|\n/)[0]
-      const summary = text.split('# ')[1].split(/\r\n|\r|\n/)[2]
+      const title = info.article.split('# ')[1].split(/\r\n|\r|\n/)[0]
+      const summary = info.article.split('# ')[1].split(/\r\n|\r|\n/)[2]
       const obj = {
         path: json.path,
+        url: info.url,
         img: json.img,
         tag: json.tag,
         title: title,

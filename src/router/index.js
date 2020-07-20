@@ -15,8 +15,10 @@ export default new Router({
       component: Top
     },
     {
-      path: '/archive/:id',
-      component: Article
+      path: '/archive/:id/:title',
+      name: 'archive',
+      component: Article,
+      props: true
     }
   ]
 })

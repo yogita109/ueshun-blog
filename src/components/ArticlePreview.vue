@@ -18,7 +18,10 @@ export default {
   },
   methods: {
     goToDetail () {
-      console.log('goToDetail')
+      this.$router.push({
+        name: 'archive',
+        params: { id: this.article.path.split('/')[0], title: this.article.path.split('/')[1] }
+      })
     }
   }
 }

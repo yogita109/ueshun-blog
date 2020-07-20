@@ -1,9 +1,7 @@
 import Repository from './Repository'
 
-export function fetchArticleURLs () {
-  const res = Repository.get('https://api.github.com/repos/yogita109/ueshun_blog_repository/contents/articles')
-  console.log(res)
-  return res
+export function fetchAboutArticles () {
+  return Repository.get('https://api.github.com/repos/yogita109/ueshun_blog_repository/contents/articles')
 }
 
 export function fetchArticleURL (path) {

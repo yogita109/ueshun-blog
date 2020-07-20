@@ -25,9 +25,13 @@ export default {
       article: ''
     }
   },
+  props: {
+    id: String,
+    title: String
+  },
   methods: {
     async fetchArticle () {
-      const url = 'https://raw.githubusercontent.com/yogita109/ueshun_blog_repository/master/articles/' + this.param
+      const url = 'https://raw.githubusercontent.com/yogita109/ueshun_blog_repository/master/articles/' + this.id + '/' + this.title
       const response = await ArticleRepository.fetchArticle(url)
       if (response.status >= 200 && response.status < 300) {
         const body = response.data.split('*****')[2]
