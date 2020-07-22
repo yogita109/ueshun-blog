@@ -22,7 +22,8 @@ export default {
         {
           imgSrc: '../static/PosP_logo_web.png',
           title: 'PosP',
-          subTitle: '配達先の管理業務の煩わしさから解放するアプリ'
+          subTitle: '配達先の管理業務の煩わしさから解放するアプリ',
+          appURL: 'https://apps.apple.com/jp/app/id1502812816?ign-mpt=uo%3D4'
         }
       ]
     }

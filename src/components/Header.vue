@@ -5,7 +5,6 @@
       <li @click="goTo('/')">トップ</li>
       <li @click="goTo('/skill')">スキルセット</li>
       <li @click="goTo('/products')">個人開発アプリ</li>
-      <li @click="goTo('お問い合わせ')">お問い合わせ</li>
     </ul>
   </header>
 </template>

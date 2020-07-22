@@ -1,5 +1,5 @@
 <template>
-  <div class='productPreview'>
+  <div class='productPreview' @click="goToAppPage">
     <div class='thumbnail'><img :src="product.imgSrc" alt="" /></div>
     <div class='title'>{{ product.title }}</div>
     <div class='subTitle'>{{ product.subTitle }}</div>
@@ -12,6 +12,11 @@ export default {
     product: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    goToAppPage () {
+      location.href = this.product.appURL
     }
   }
 }
