@@ -4,7 +4,7 @@
     <ul class="menu">
       <li @click="goTo('/')">トップ</li>
       <li @click="goTo('/skill')">スキルセット</li>
-      <li @click="goTo('個人開発アプリ')">個人開発アプリ</li>
+      <li @click="goTo('/products')">個人開発アプリ</li>
       <li @click="goTo('お問い合わせ')">お問い合わせ</li>
     </ul>
   </header>

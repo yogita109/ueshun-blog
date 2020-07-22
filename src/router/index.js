@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Top from '@/components/Top'
 import Article from '@/components/Article'
 import Skill from '@/components/Skill'
+import Products from '@/components/Products'
 
 Vue.use(Router)
 
@@ -24,6 +25,10 @@ export default new Router({
     {
       path: '/skill',
       component: Skill
+    },
+    {
+      path: '/products',
+      component: Products
     }
   ]
 })
