@@ -71,7 +71,7 @@ export default {
     parse (info) {
       const metaData = info.article.split('*****')[1]
       const json = JSON.parse(metaData)
-      const title = info.article.split('# ')[1].split(/\r\n|\r|\n/)[0]
+      const title = json.path.split('/')[1].split('.')[0]
       const summary = info.article.split('# ')[1].split(/\r\n|\r|\n/)[2]
       const obj = {
         path: json.path,
