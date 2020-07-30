@@ -24,7 +24,11 @@ export default {
   created: function () {
     this.fetchArticles()
       .then(paths => this.fetchArticleURLs(paths))
-      .then(urls => urls.map(url => this.fetchArticle(url)))
+      .then(urls =>
+        urls
+          .filter(url => url.includes('.md'))
+          .map(url => this.fetchArticle(url))
+      )
       .then(articles => {
         articles.forEach(element => {
           element
@@ -49,16 +53,18 @@ export default {
       }
     },
     async fetchArticleURLs (paths) {
+      let urls = []
       for (let i = 1; i <= paths; i++) {
         const response = await ArticleRepository.fetchArticleURL(i)
         if (response.status >= 200 && response.status < 300) {
-          return response.data.map(element => {
-            return element.download_url
+          response.data.map(element => {
+            urls.unshift(element.download_url)
           })
         } else {
           console.log('failure')
         }
       }
+      return urls
     },
     async fetchArticle (url) {
       const response = await ArticleRepository.fetchArticle(url)

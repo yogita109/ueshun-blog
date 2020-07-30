@@ -50,4 +50,22 @@ export default {
   margin: 16px;
   padding: 0 40px;
 }
+
+blockquote {
+  position: relative;
+  padding: 1px 15px;
+  box-sizing: border-box;
+  font-style: italic;
+  background: #f5f5f5;
+  color: #777777;
+  border-left: 4px solid #777777;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+i {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #777777;
+}
+
 </style>
