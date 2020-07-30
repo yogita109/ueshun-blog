@@ -45,7 +45,7 @@ export default {
 
 <style src="../../node_modules/highlight.js/styles/monokai-sublime.css"></style>
 
-<style>
+<style scoped>
 .items {
   margin: 16px;
   padding: 0 40px;

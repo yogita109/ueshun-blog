@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .item {
   margin: 16px;
   padding: 0 40px;
