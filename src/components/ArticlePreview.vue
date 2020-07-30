@@ -35,8 +35,8 @@ export default {
 }
 
 img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .tag {
@@ -49,6 +49,14 @@ img {
 .thumbnail {
   text-align: center;
   margin: 4px 0;
+  display: inline-block;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0);
+  transition: all 0.3s ease 0s;
+}
+
+.thumbnail:hover {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.14);
+  transform: translateY(-0.1875em);
 }
 
 .title {
