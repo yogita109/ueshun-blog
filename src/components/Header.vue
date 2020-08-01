@@ -6,6 +6,11 @@
       <li @click="goTo('/skill')">スキルセット</li>
       <li @click="goTo('/products')">個人開発アプリ</li>
     </ul>
+    <div class="hamburger_btn" @click="humbergerBtnActive=!humbergerBtnActive">
+      <span class="line line_01" v-bind:class="{'btn_line_01':humbergerBtnActive}"> </span>
+      <span class="line line_02" v-bind:class="{'btn_line_02':humbergerBtnActive}"> </span>
+      <span class="line line_03" v-bind:class="{'btn_line_03':humbergerBtnActive}"> </span>
+    </div>
   </header>
 </template>
 
@@ -13,6 +18,11 @@
 export default {
   name: 'Header',
 
+  data () {
+    return {
+      humbergerBtnActive: false
+    }
+  },
   methods: {
     goTo: function (route) {
       this.$router.push(route)
@@ -57,4 +67,49 @@ li {
 li:hover {
   color: #999999;
 }
+
+.hamburger_btn {
+  position: relative;
+  height: 75px;
+  width: 70px;
+  top: 10px;
+}
+
+.hamburger_btn .line {
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #333333;
+  text-align: center;
+}
+
+.hamburger_btn .line_01 {
+  top: 16px;
+  transition: 0.4s ease;
+}
+.hamburger_btn .line_02 {
+  top: 26px;
+  transition: 0.4s ease;
+}
+.hamburger_btn .line_03 {
+  top: 36px;
+  transition: 0.4s ease;
+}
+
+.btn_line_01 {
+  transform: translateY(10px) rotate(-45deg);
+  transition: 0.4s ease;
+}
+.btn_line_02 {
+  transition: 0.4s ease;
+  opacity: 0;
+}
+.btn_line_03 {
+  transform: translateY(-10px) rotate(45deg);
+  transition: 0.4s ease;
+}
+
+/* @media screen and (min-width: 769px) {
+   
+} */
 </style>
