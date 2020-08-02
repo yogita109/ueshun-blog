@@ -1,11 +1,13 @@
 <template>
   <header class="header">
     <div class="headerTitle">百聞は一見に如かず、百見は一触に如かず</div>
-    <ul class="menu">
-      <li @click="goTo('/')">トップ</li>
-      <li @click="goTo('/skill')">スキルセット</li>
-      <li @click="goTo('/products')">個人開発アプリ</li>
-    </ul>
+    <transition name="menu">
+      <ul class="menu" v-show="humbergerBtnActive">
+        <li @click="goTo('/')">トップ</li>
+        <li @click="goTo('/skill')">スキルセット</li>
+        <li @click="goTo('/products')">個人開発アプリ</li>
+      </ul>
+    </transition>
     <div class="hamburger_btn" @click="humbergerBtnActive=!humbergerBtnActive">
       <span class="line line_01" v-bind:class="{'btn_line_01':humbergerBtnActive}"> </span>
       <span class="line line_02" v-bind:class="{'btn_line_02':humbergerBtnActive}"> </span>
@@ -18,6 +20,11 @@
 export default {
   name: 'Header',
 
+  created () {
+    if (window.innerWidth >= 1180) {
+      this.humbergerBtnActive = true
+    }
+  },
   data () {
     return {
       humbergerBtnActive: false
@@ -25,6 +32,7 @@ export default {
   },
   methods: {
     goTo: function (route) {
+      this.humbergerBtnActive = false
       this.$router.push(route)
     }
   }
@@ -70,34 +78,35 @@ li:hover {
 
 .hamburger_btn {
   position: relative;
-  height: 75px;
+  display: none;
+  height: 21px;
   width: 70px;
-  top: 10px;
+  top: 0px;
 }
 
 .hamburger_btn .line {
   position: absolute;
-  width: 32px;
+  width: 24px;
   height: 2px;
   background: #333333;
   text-align: center;
 }
 
 .hamburger_btn .line_01 {
-  top: 16px;
+  top: 0px;
   transition: 0.4s ease;
 }
 .hamburger_btn .line_02 {
-  top: 26px;
+  top: 8px;
   transition: 0.4s ease;
 }
 .hamburger_btn .line_03 {
-  top: 36px;
+  top: 16px;
   transition: 0.4s ease;
 }
 
 .btn_line_01 {
-  transform: translateY(10px) rotate(-45deg);
+  transform: translateY(8px) rotate(-45deg);
   transition: 0.4s ease;
 }
 .btn_line_02 {
@@ -105,11 +114,54 @@ li:hover {
   opacity: 0;
 }
 .btn_line_03 {
-  transform: translateY(-10px) rotate(45deg);
+  transform: translateY(-8px) rotate(45deg);
   transition: 0.4s ease;
 }
 
-/* @media screen and (min-width: 769px) {
-   
-} */
+@media screen and (max-width: 1180px) {
+  .header {
+    height: 50px;
+    border-radius: 0rem;
+    margin: 10px;
+    padding: 0;
+  }
+
+  .headerTitle {
+    font-size: 0.8rem;
+  }
+
+  .hamburger_btn {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    top: 70px;
+    padding: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.95);
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .menu li {
+    margin: 8px 0;
+    color: #82be28;
+  }
+
+  .menu-enter-active, .menu-leave-active {
+    transition: opacity 0.4s;
+  }
+
+  .menu-enter, .menu-leave-to {
+    opacity: 0;
+  }
+
+  .menu-leave, .menu-enter-to{
+    opacity: 1;
+  }
+}
 </style>
