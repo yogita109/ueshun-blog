@@ -165,4 +165,10 @@ li:hover {
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 789px) {
+  .header {
+    margin: 0;
+  }
+}
 </style>

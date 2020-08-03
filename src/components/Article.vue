@@ -49,6 +49,7 @@ export default {
 .items {
   margin: 16px;
   padding: 0 40px;
+  word-break: break-all;
 }
 
 blockquote {
@@ -68,4 +69,10 @@ i {
   color: #777777;
 }
 
+@media screen and (max-width: 787px) {
+  .items {
+    margin: 0 0 0 8px;
+    padding: 0;
+  }
+}
 </style>
