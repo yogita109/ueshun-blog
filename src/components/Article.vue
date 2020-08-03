@@ -1,5 +1,5 @@
 <template>
-<div class="items">
+<div class="articleItems">
   <div v-html="article" />
 </div>
 </template>>
@@ -46,7 +46,7 @@ export default {
 <style src="../../node_modules/highlight.js/styles/monokai-sublime.css"></style>
 
 <style>
-.items {
+.articleItems {
   margin: 16px;
   padding: 0 40px;
   word-break: break-all;
@@ -70,7 +70,7 @@ i {
 }
 
 @media screen and (max-width: 787px) {
-  .items {
+  .articleItems {
     margin: 0 0 0 8px;
     padding: 0;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="items">
+  <div class="productItems">
     <ul>
       <li class="product" v-for="product in products" :key="product.title">
         <ProductPreview
@@ -37,7 +37,14 @@ ul {
   list-style-type: none;
 }
 
-.product {
+.productItems {
   width: 48%;
+  padding: 0;
+}
+
+@media screen and (max-width: 787px) {
+  .productItems {
+    width: 90%;
+  }
 }
 </style>

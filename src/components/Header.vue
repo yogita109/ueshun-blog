@@ -170,5 +170,9 @@ li:hover {
   .header {
     margin: 0;
   }
+
+  .menu {
+    top: 50px;
+  }
 }
 </style>
