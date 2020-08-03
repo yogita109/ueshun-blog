@@ -32,7 +32,9 @@ export default {
   },
   methods: {
     goTo: function (route) {
-      this.humbergerBtnActive = false
+      if (window.innerWidth < 1180) {
+        this.humbergerBtnActive = false
+      }
       this.$router.push(route)
     }
   }
