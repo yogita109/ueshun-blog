@@ -127,6 +127,7 @@ li:hover {
   }
 
   .headerTitle {
+    padding-left: 1rem;
     font-size: 0.8rem;
   }
 

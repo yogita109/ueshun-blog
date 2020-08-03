@@ -127,4 +127,26 @@ li {
   background-color: #343a40;
 }
 
+@media screen and (max-width: 1180px) {
+  li {
+    width: 40%;
+    margin: 2rem;
+  }
+
+  .more .moreButton {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 787px) {
+  li {
+    width: 90%;
+    margin: 2rem;
+  }
+
+  .more .moreButton {
+    width: 30%;
+  }
+}
+
 </style>
