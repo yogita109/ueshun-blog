@@ -34,4 +34,11 @@ export default {
   margin: 16px;
   padding: 0 40px;
 }
+
+@media screen and (max-width: 787px) {
+  .item {
+    margin: 0;
+    padding: 0 8px;
+  }
+}
 </style>
